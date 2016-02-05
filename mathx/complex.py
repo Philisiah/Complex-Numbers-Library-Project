@@ -63,7 +63,7 @@ class Complex(object):
         return Complex(-self.rl, -self.img)
 
     def __eq__(self, other):
-        return Complexk(self.rl == other.rl, self.img == other.img)
+        return Complex(self.rl == other.rl, self.img == other.img)
 
     def __ne__(self, other):
         '''this specifies that conditions for which != will apply'''
