@@ -9,7 +9,7 @@ class Complex(object):
 
     def __add__(self, other):
         '''modifies the __add__ method to control
-        the sum of two complex numbers'''
+        the sum'''
         if isinstance(other, int):
             return Complex(self.rl + other, self.img)
         elif isinstance(other, float):
@@ -21,7 +21,7 @@ class Complex(object):
 
     def __sub__(self, other):
         '''modifies the __sub__ method to control
-        the division of two complex numbers'''
+        the difference'''
 
         if isinstance(other, int):
             return Complex(self.rl - other, self.img)
@@ -34,7 +34,7 @@ class Complex(object):
 
     def __div__(self, other):
         '''modifies the __add__ method to control
-        the result  of dividing two complex numbers'''
+        the result  of division'''
         if isinstance(other, int):
             return Complex(self.rl / other, self.img / other)
         elif isinstance(other, float):
@@ -46,7 +46,7 @@ class Complex(object):
 
     def __mul__(self, other):
         '''modify the __mul__ method to control
-        the product of two or more complex numbers'''
+        the product of complex numbers'''
         if isinstance(other, int):
             return Complex(self.rl * other, self.img * other)
         elif isinstance(other, float):
@@ -58,9 +58,12 @@ class Complex(object):
     __rmul__ = __mul__  # reverse product remains the same
 
     def __neg__(self):
-        '''this function handles
-         computations where one operand is negative'''
+        '''handlescomputations where
+         one operand is negative'''
         return Complex(-self.rl, -self.img)
+
+    def __eq__(self, other):
+        return Complexk(self.rl == other.rl, self.img == other.img)
 
     def __ne__(self, other):
         '''this specifies that conditions for which != will apply'''
@@ -69,3 +72,6 @@ class Complex(object):
     def __str__(self):
         '''returns a printable string of the variables in an object to user'''
         return '(%g, %g)' % (self.rl, self.img)
+
+    def __repr__(self):
+        return 'Complex' + str(self)
